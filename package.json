@@ -1,13 +1,14 @@
 {
   "name": "wentworth-class-scraper",
-  "version": "1.0",
+  "version": "1.0.0",
   "description": "Scrapes Wentworth's class schedule and outputs JSON",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "test": "mocha --no-timeouts"
   },
   "author": "Nick Allevato",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "cheerio": "^0.20.0",
     "request": "^2.74.0"
