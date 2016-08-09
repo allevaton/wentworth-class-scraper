@@ -71,7 +71,7 @@ module.exports = class LeopardWebAuthenticator {
                 reject(err);
 
               this._authenticated = true;
-              resolve();
+              resolve(true);
             });
           }
           else
