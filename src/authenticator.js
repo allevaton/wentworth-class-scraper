@@ -32,6 +32,12 @@ module.exports = class LeopardWebAuthenticator {
   }
 
   authenticate(username = this.username, password = this.password) {
+    if (!username)
+      return Promise.reject('Username is required');
+    
+    if (!password)
+      return Promise.reject('Password is required!');
+      
     return new Promise((resolve, reject) => {
       this.request(loginUrl, (err, response, body) => {
         if (err)
@@ -60,7 +66,7 @@ module.exports = class LeopardWebAuthenticator {
 
           if (response.statusCode >= 300 && response.statusCode < 400) {
             // Follow the redirect manually, this cements the authentication
-            this.request.get(response.headers.location, (err, response, body) => {
+            this.request.get(response.headers.location, (err) => {
               if (err)
                 reject(err);
 
