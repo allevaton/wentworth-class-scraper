@@ -17,7 +17,6 @@ if (require.main === module) {
         console.error(err);
       });
   });
-
 }
 else {
   module.exports = {
