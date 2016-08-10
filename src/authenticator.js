@@ -31,13 +31,21 @@ module.exports = class LeopardWebAuthenticator {
     return this._authenticated;
   }
 
+  set setPassword(password) {
+    this.password = password;
+  }
+
+  set setUsername(username) {
+    this.username = username;
+  }
+
   authenticate(username = this.username, password = this.password) {
     if (!username)
       return Promise.reject('Username is required');
-    
+
     if (!password)
       return Promise.reject('Password is required!');
-      
+
     return new Promise((resolve, reject) => {
       this.request(loginUrl, (err, response, body) => {
         if (err)
